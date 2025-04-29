@@ -7,14 +7,14 @@
         
         
         
-        <link rel="shortcut icon" href="/img/favicon.ico">
-        <title>My Docs</title>
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/fontawesome.min.css" rel="stylesheet">
-        <link href="/css/brands.min.css" rel="stylesheet">
-        <link href="/css/solid.min.css" rel="stylesheet">
-        <link href="/css/v4-font-face.min.css" rel="stylesheet">
-        <link href="/css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Benchmarking - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
@@ -24,7 +24,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="/.">My Docs</a>
+                <a class="navbar-brand" href="../..">My Docs</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,35 +35,35 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a href="/." class="nav-link">Welcome to EvalxNLP documentation!</a>
+                                <a href="../.." class="nav-link">Welcome to EvalxNLP documentation!</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="/reference/explainers/" class="dropdown-item">🧠 Explainers</a>
+    <a href="../../reference/explainers/" class="dropdown-item">🧠 Explainers</a>
 </li>
                                     
 <li>
-    <a href="/reference/llm_explanations/" class="dropdown-item">Llm explanations</a>
+    <a href="../../reference/llm_explanations/" class="dropdown-item">Llm explanations</a>
 </li>
                                     
 <li>
-    <a href="/reference/metrics/" class="dropdown-item">📊 Evaluation Metrics</a>
+    <a href="../../reference/metrics/" class="dropdown-item">📊 Evaluation Metrics</a>
 </li>
                                     
 <li>
-    <a href="/reference/tasks_datasets/" class="dropdown-item">Tasks datasets</a>
+    <a href="../../reference/tasks_datasets/" class="dropdown-item">Tasks datasets</a>
 </li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Usage</a>
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Usage</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="/usage/benchmarking/" class="dropdown-item">Benchmarking</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Benchmarking</a>
 </li>
                                 </ul>
                             </li>
@@ -75,6 +75,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../reference/tasks_datasets/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -82,15 +92,62 @@
 
         <div class="container">
             <div class="row">
-
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-      </div>
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
     </div>
 
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
 
+<p>EvalxNLP allows users to <strong>evaluate the quality and reliability</strong> of generated explanations and compare multiple explainers across plausibility and faithfulness metrics.</p>
+<hr />
+<h3 id="evaluating-a-single-sentence">🧪 Evaluating a Single Sentence</h3>
+<h4 id="step-1-evaluate-explanations">Step 1: Evaluate Explanations</h4>
+<p>Use the <code>evaluate_single_sentence()</code> method from the <code>XAIFramework</code> class to evaluate explanations for a single sentence. You may also provide a <strong>human rationale</strong> to enable plausibility metric evaluation.</p>
+<h4 id="human-rationale">Human Rationale</h4>
+<ul>
+<li>Human rationales are <strong>binary lists</strong> indicating which tokens are important for the target label.</li>
+<li>A value of <code>1</code> marks a token as <strong>important</strong>, and <code>0</code> as <strong>not important</strong>.</li>
+<li>If no rationale is provided, plausibility metrics will be <strong>skipped</strong>.</li>
+</ul>
+<pre><code class="language-python">example = &quot;Worst experience I've ever had!!&quot;
+label = &quot;negative&quot;
+human_rationale = [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0]  # Binary rationale
+
+metrics = xai_framework.evaluate_single_sentence(
+    sentence=example,
+    target_label=label,
+    human_rationale=human_rationale
+)
+</code></pre>
+<h4 id="step-2-view-results">Step 2: View Results</h4>
+<p>Visualize the evaluation metrics in a tabular format using the <code>create_pivot_table()</code> function:</p>
+<pre><code class="language-python">xai_framework.create_pivot_table(metrics)
+</code></pre>
+<ul>
+<li>Metrics are color-coded by property.</li>
+<li>Darker hues indicate stronger performance.</li>
+<li>The best-performing score for each metric is bolded for easier comparison.</li>
+</ul>
+<h3 id="evaluating-a-dataset">🧪 Evaluating a Dataset</h3>
+<h4 id="step-1-compute-evaluation-metrics">Step 1: Compute Evaluation Metrics</h4>
+<p>Use the <code>compute_evaluation_metrics()</code> method to calculate explanation quality across a dataset. It takes a list of explanation objects as input (e.g., from <code>get_feature_importance_for_dataset()</code>).</p>
+<pre><code class="language-python">metrics = xai_framework.compute_evaluation_metrics(exp_scores)
+</code></pre>
+<h4 id="step-2-visualize-results">Step 2: Visualize Results</h4>
+<p>Visualize the dataset-level evaluation using the same pivot table function:</p>
+<pre><code class="language-python">xai_framework.create_pivot_table(metrics)
+</code></pre></div>
             </div>
         </div>
 
@@ -98,13 +155,13 @@
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
         <script>
-            var base_url = "/",
+            var base_url = "../..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="/js/base.js"></script>
-        <script src="/search/main.js"></script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

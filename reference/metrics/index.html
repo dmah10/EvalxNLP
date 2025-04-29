@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>📊 Evaluation Metrics - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Welcome to EvalxNLP documentation!</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../explainers/" class="dropdown-item">🧠 Explainers</a>
+</li>
+                                    
+<li>
+    <a href="../llm_explanations/" class="dropdown-item">Llm explanations</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">📊 Evaluation Metrics</a>
+</li>
+                                    
+<li>
+    <a href="../tasks_datasets/" class="dropdown-item">Tasks datasets</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Usage</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../usage/benchmarking/" class="dropdown-item">Benchmarking</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../llm_explanations/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../tasks_datasets/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#evaluation-metrics" class="nav-link">📊 Evaluation Metrics</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#faithfulness" class="nav-link">✅ Faithfulness</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#plausibility" class="nav-link">💡 Plausibility</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#complexity" class="nav-link">🔀 Complexity</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="evaluation-metrics">📊 Evaluation Metrics</h1>
+<p>EvalxNLP incorporates a diverse and well-recognized set of properties and metrics from prior research to evaluate post-hoc explanation methods. These metrics are designed to assess explanation quality across three major properties:</p>
+<ul>
+<li><strong>Faithfulness</strong></li>
+<li><strong>Plausibility</strong></li>
+<li><strong>Complexity</strong></li>
+</ul>
+<p>Each metric is <strong>custom-implemented</strong>, following its original research paper to ensure correctness and theoretical fidelity.</p>
+<blockquote>
+<p><em>(↓)/(↑) indicates whether lower or higher values are better for that metric.</em></p>
+</blockquote>
+<hr />
+<h2 id="faithfulness">✅ Faithfulness</h2>
+<blockquote>
+<p>Measures how well the explanations align with the model's actual reasoning.</p>
+</blockquote>
+<h3 id="soft-sufficiency">Soft Sufficiency ↓</h3>
+<p>Measures how well the most important tokens (based on their importance scores) can retain the model's prediction when other tokens are softly perturbed. It assumes that retaining more elements of important tokens should preserve the model's output, while dropping less important tokens should have minimal impact.</p>
+<p>A <strong>Bernoulli mask</strong> is generated, where each token is dropped with a probability proportional to its normalized importance score:</p>
+<p>$$
+\mathrm{mask} \sim \mathrm{Bernoulli}\left(\mathrm{normalized_importance_scores}\right)
+$$</p>
+<p>The <strong>Suff score</strong> is calculated as:</p>
+<p>$$
+\mathrm{Suff} = 1 - \max\left(0, P_{\mathrm{full}}(y) - P_{\mathrm{reduced}}(y)\right)
+$$</p>
+<p>Where:</p>
+<ul>
+<li>$P_{\mathrm{full}}(y)$ is the model's predicted probability for the original input</li>
+<li>$P_{\mathrm{reduced}}(y)$ is the model's predicted probability for the perturbed input</li>
+</ul>
+<p>The Suff score is normalized to the range $[0, 1]$ using a baseline Suff score (computed by masking all tokens):</p>
+<p>$$
+\mathrm{normalized_Suff} = \frac{\max\left(0, \mathrm{Suff} - \mathrm{baseline_Suff}\right)}{1 - \mathrm{baseline_Suff}}
+$$</p>
+<p>The final score is the average across all instances, with higher values indicating that the model's predictions are less affected by the perturbation of important tokens.</p>
+<hr />
+<h3 id="soft-comprehensiveness">Soft Comprehensiveness ↑</h3>
+<p>It evaluates how much the model's prediction changes when important tokens are softly perturbed using Bernoulli mask. It assumes that heavily perturbing important tokens should significantly affect the model's output, indicating their importance to the prediction.</p>
+<p>For each instance, the importance scores of tokens are normalized to the range $[0, 1]$:</p>
+<p>$$
+\mathrm{normalized_importance_scores} = \frac{\mathrm{importance_scores} - \min(\mathrm{importance_scores})}{\max(\mathrm{importance_scores}) - \min(\mathrm{importance_scores})}
+$$</p>
+<p>A Bernoulli mask is then generated, where each token is dropped with a probability proportional to $1 - \mathrm{normalized_importance_scores}$:</p>
+<p>$$
+\mathrm{mask} \sim \mathrm{Bernoulli}\left(1 - \mathrm{normalized_importance_scores}\right)
+$$</p>
+<p>This mask is applied to the token embeddings, creating a perturbed input. The $\mathrm{Comp}$ score is calculated as the difference between the model's confidence in the original prediction and its confidence after perturbation:</p>
+<p>$$
+\mathrm{Comp} = \max\left(0, P_{\mathrm{original}}(y) - P_{\mathrm{perturbed}}(y)\right)
+$$</p>
+<p>where:</p>
+<ul>
+<li>$P_{\mathrm{original}}(y)$ is the model's predicted probability for the original input</li>
+<li>$P_{\mathrm{perturbed}}(y)$ is the model's predicted probability for the perturbed input</li>
+</ul>
+<p>The final $\mathrm{Comp}$ score is the average across all instances, with higher values indicating that the model relies more heavily on the important tokens.</p>
+<hr />
+<h3 id="fad-curve-n-auc">FAD curve N-AUC ↓</h3>
+<p>Measures the impact of dropping the most salient tokens on model performance, with the steepness of the curve indicating the method's faithfulness. The N-AUC quantifies this steepness, where a higher score reflects better alignment of the attribution method with the model's true feature importance.</p>
+<p>For each instance, tokens are progressively dropped based on their saliency scores and the model's accuracy is evaluated at different drop percentages (e.g., 0%, 10%, ..., 40%). The saliency scores determine which tokens to replace with a baseline token (<code>[MASK]</code>). The N-AUC is computed over a specified percentage range (0% to 20%) using the trapezoidal rule:</p>
+<p>$$
+\mathrm{N\text{-}AUC} = \frac{\mathrm{AUC}}{\mathrm{max_AUC}}
+$$</p>
+<p>where:</p>
+<ul>
+<li>$\mathrm{AUC}$ is the area under the accuracy curve, computed as:</li>
+</ul>
+<p>$$
+  \mathrm{AUC} = \int_{x_{\min}}^{x_{\max}} y(x) \, dx
+  $$</p>
+<p>where $x$ represents the percentage of tokens dropped, and $y(x)$ represents the model's accuracy at that percentage.</p>
+<ul>
+<li>$\mathrm{max_AUC}$ is the maximum possible area, calculated as:</li>
+</ul>
+<p>$$
+  \mathrm{max_AUC} = (x_{\max} - x_{\min}) \times \max(y)
+  $$</p>
+<p>where $x_{\min}$ and $x_{\max}$ are the lower and upper bounds of the percentage range, and $\max(y)$ is the highest accuracy value in the range.</p>
+<p>This metric quantifies how much model performance degrades when salient tokens are removed, with lower N-AUC indicating greater reliance on the dropped tokens.</p>
+<hr />
+<h3 id="autpc">AUTPC ↓</h3>
+<p>Area Under the Token Perturbation Curve evaluates the faithfulness of saliency explanations by progressively masking the most important tokens (based on their saliency scores) and measuring the drop in the model's performance. Masking involves replacing tokens with a baseline value (typically <code>[MASK]</code> or a zero vector).</p>
+<p>Starting with 0% masking and incrementally increasing to 100%, the model’s accuracy
+is computed at each threshold. The resulting performance curve, plotting accuracy
+against the percentage of tokens masked, is used to calculate the area under the curve
+(AUC).</p>
+<p>This AUTPC value, normalized to the range [0, 1], provides a single metric
+summarizing how significantly the model relies on the highlighted tokens, with higher
+values indicating more faithful explanations. A smaller AUC indicates that removing
+critical features degrades performance faster, demonstrating more faithful explanations.
+Results are standardized by the number of features for comparability.</p>
+<hr />
+<h2 id="plausibility">💡 Plausibility</h2>
+<blockquote>
+<p>Measures how well explanations align with human-annotated rationales.</p>
+</blockquote>
+<h3 id="iou-f1-score">IOU-F1 Score ↑</h3>
+<p>It evaluates the alignment between predicted rationales and ground truth rationales at the span level using the Intersection over Union (IOU) metric. For the i-th instance with predicted rationale $S_i^p$ and ground truth rationale $S_i^g$, the IOU is calculated as:</p>
+<p>$$
+S_i = \frac{|S_i^p \cap S_i^g|}{|S_i^p \cup S_i^g|}
+$$</p>
+<p>A rationale is considered a match when $S_i \geq 0.5$. The IOU-F1 score aggregates these matches across all $N$ instances:</p>
+<p>$$
+\mathrm{IOU\text{-}F1} = \frac{1}{N} \sum_{i=1}^N \mathbb{I}(S_i \geq 0.5)
+$$</p>
+<p>where $\mathbb{I}$ is the indicator function:
+$$
+\mathbb{I}(S_i \geq 0.5) = 
+\begin{cases} 
+1 &amp; \text{if } S_i \geq 0.5 \
+0 &amp; \text{otherwise}
+\end{cases}
+$$</p>
+<p>This metric ranges from 0 to 1, with higher values indicating better alignment between predicted and ground truth rationales. The 0.5 threshold ensures that only substantially overlapping spans are counted as matches.</p>
+<hr />
+<h3 id="token-level-f1-score">Token-level F1 Score ↑</h3>
+<p>The Token F1-score measures the alignment between predicted rationales and ground truth rationales by computing the F1-score, which balances precision and recall. For each instance, the predicted rationale $S_i^p$ is compared to the ground truth rationale $S_i^g$, and the F1-score is calculated based on the overlap of tokens.</p>
+<p>The F1-score for the i-th instance is defined as:</p>
+<p>$$
+F1_i = \frac{2 \times P_i \times R_i}{P_i + R_i}
+$$</p>
+<p>where:
+- <strong>Precision</strong> $P_i$:
+  $$
+  P_i = \frac{|S_i^p \cap S_i^g|}{|S_i^p|}
+  $$
+- <strong>Recall</strong> $R_i$:
+  $$
+  R_i = \frac{|S_i^p \cap S_i^g|}{|S_i^g|}
+  $$</p>
+<p>The final Token F1-score is the average F1-score across all $N$ instances:</p>
+<p>$$
+\mathrm{Token\text{-}F1} = \frac{1}{N} \sum_{i=1}^N F1_i
+$$</p>
+<p>For both the Token-F1 score and IOU-F1 score, the top $K$ tokens with positive influence are selected, where $K$ is the average length of the human rationale for the dataset.</p>
+<hr />
+<h3 id="auprc">AUPRC ↑</h3>
+<p>For each instance, the saliency scores are compared to the ground truth rationale
+mask. The precision-recall curve is computed, and then the area under this curve is
+calculated. The final AUPRC score is the average of these values across all instances,
+providing a single metric that quantifies the alignment between predicted saliency and
+human-annotated rationales, with higher scores indicating better performance.</p>
+<hr />
+<h2 id="complexity">🔀 Complexity</h2>
+<blockquote>
+<p>Measures how interpretable the explanation is by checking sparsity and token focus.</p>
+</blockquote>
+<h3 id="complexity_1">Complexity ↓</h3>
+<p>It measures the complexity of token-level attributions using Shannon entropy, which quantifies how evenly the importance scores are distributed across tokens. For each instance, the fractional contribution of each token is computed as:</p>
+<p>$$
+f_j = \frac{|a_j|}{\sum_{k=1}^n |a_k|}
+$$</p>
+<p>where:
+- $a_j$ is the saliency score of the $j$-th token
+- $n$ is the total number of tokens</p>
+<p>The complexity score for the instance is then calculated as the entropy of the fractional contributions:</p>
+<p>$$
+\mathrm{Complexity} = -\frac{1}{n}\sum_{j=1}^n f_j \cdot \log(f_j + \epsilon)
+$$</p>
+<p>where $\epsilon$ is a small constant (e.g., $10^{-8}$) to avoid numerical instability. The final complexity score is the average across all instances, with higher values indicating more evenly distributed attributions (higher complexity) and lower values indicating more concentrated attributions (lower complexity).</p>
+<hr />
+<h3 id="sparseness">Sparseness ↑</h3>
+<p>It measures the sparsity of model attributions using the Gini index, which quantifies how concentrated the importance scores are across features. For each instance, the absolute values of the attributions are sorted in ascending order, and the Gini index is computed as:</p>
+<p>$$
+\mathrm{Sparseness} = 1 - 2 \cdot \frac{\sum_{j=1}^n (n - j + 0.5) \cdot |a_j|}{\left(\sum_{j=1}^n |a_j|\right) \cdot n}
+$$</p>
+<p>where:
+- $a_j$ is the $j$-th sorted attribution value
+- $n$ is the total number of features (tokens)
+- $|a_j|$ is the absolute value of the $j$-th attribution</p>
+<p>The sparseness score ranges from 0 to 1, where:
+- <strong>0</strong> indicates dense attributions (importance is evenly distributed across features)
+- <strong>1</strong> indicates sparse attributions (importance is concentrated on a few features)</p>
+<p>The final sparseness score is the average across all instances, providing a single metric to evaluate how focused the model is on specific features.</p>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -4,27 +4,27 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
         
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>My Docs</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/fontawesome.min.css" rel="stylesheet">
-        <link href="css/brands.min.css" rel="stylesheet">
-        <link href="css/solid.min.css" rel="stylesheet">
-        <link href="css/v4-font-face.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Tasks datasets - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">My Docs</a>
+                <a class="navbar-brand" href="../..">My Docs</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,26 +35,26 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a href="." class="nav-link active" aria-current="page">Welcome to EvalxNLP documentation!</a>
+                                <a href="../.." class="nav-link">Welcome to EvalxNLP documentation!</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="reference/explainers/" class="dropdown-item">🧠 Explainers</a>
+    <a href="../explainers/" class="dropdown-item">🧠 Explainers</a>
 </li>
                                     
 <li>
-    <a href="reference/llm_explanations/" class="dropdown-item">Llm explanations</a>
+    <a href="../llm_explanations/" class="dropdown-item">Llm explanations</a>
 </li>
                                     
 <li>
-    <a href="reference/metrics/" class="dropdown-item">📊 Evaluation Metrics</a>
+    <a href="../metrics/" class="dropdown-item">📊 Evaluation Metrics</a>
 </li>
                                     
 <li>
-    <a href="reference/tasks_datasets/" class="dropdown-item">Tasks datasets</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Tasks datasets</a>
 </li>
                                 </ul>
                             </li>
@@ -63,7 +63,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="usage/benchmarking/" class="dropdown-item">Benchmarking</a>
+    <a href="../../usage/benchmarking/" class="dropdown-item">Benchmarking</a>
 </li>
                                 </ul>
                             </li>
@@ -76,12 +76,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" class="nav-link disabled">
+                                <a rel="prev" href="../metrics/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="reference/explainers/" class="nav-link">
+                                <a rel="next" href="../../usage/benchmarking/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -103,12 +103,13 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#welcome-to-evalxnlp-documentation" class="nav-link">Welcome to EvalxNLP documentation!</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#contents" class="nav-link">Contents</a>
+            <li class="nav-item" data-bs-level="2"><a href="#supported-tasks" class="nav-link">🧠 Supported Tasks</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#dataset-support" class="nav-link">📚 Dataset Support</a>
+              <ul class="nav flex-column">
               </ul>
             </li>
         </ul>
@@ -116,46 +117,35 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-evalxnlp-documentation"><strong>Welcome to EvalxNLP documentation!</strong></h1>
-<p><img src="https://img.shields.io/badge/Python-3.10%2B-blue?logo=python" alt="Python">
-<img src="https://img.shields.io/badge/Version-1.0.0-orange" alt="Version"></p>
-<p><strong>EvalxNLP</strong> is a Python framework for benchmarking state-of-the-art feature attribution methods for transformer-based NLP models</p>
-<p>The framework allows users to:</p>
+<p>The framework currently supports the following text classification tasks:</p>
+<h2 id="supported-tasks">🧠 Supported Tasks</h2>
+<h4 id="sentiment-analysis">💬 Sentiment Analysis</h4>
 <ul>
-<li>
-<p>Visualize and compare Transformers-based models output explanations using various
-  Ph-FA methods.</p>
-</li>
-<li>
-<p>Use natural language text explanations from LLMs to interpret importance scores and
-  evaluation metrics for different explainers.</p>
-</li>
-<li>
-<p>Evaluate effectiveness of explainers using a variety of evaluation metrics for faithfulness,
-  plausibility, and complexity.</p>
-</li>
+<li>Determines the sentiment expressed in a text, such as <strong>positive</strong>, <strong>negative</strong>, or <strong>neutral</strong>.</li>
+<li>Commonly used in applications like product reviews, social media analysis, and customer feedback.</li>
 </ul>
-<h2 id="contents">Contents</h2>
-<h3 id="usage">Usage</h3>
+<h4 id="hate-speech-detection">🚫 Hate Speech Detection</h4>
 <ul>
-<li><a href="usage/installation.md">Installation</a></li>
-<li><a href="usage/explaining.md">Explaining</a></li>
-<li><a href="usage/benchmarking/">Benchmarking</a></li>
-<li><a href="usage/llm_explanations.md">Generating LLM Explanations</a></li>
-<li><a href="usage/advanced_usage.md">Advanced Features</a></li>
+<li>Identifies and classifies text containing <strong>hate speech</strong>, <strong>offensive language</strong>, or <strong>harmful content</strong>.</li>
+<li>Essential for moderating online platforms and ensuring safe digital environments.</li>
 </ul>
-<h3 id="tutorials">Tutorials</h3>
+<h4 id="natural-language-inference-nli">🔗 Natural Language Inference (NLI)</h4>
 <ul>
-<li><a href="tutorials/sentiment_analysis.md">Sentiment Analysis</a></li>
-<li><a href="tutorials/hate_speech.md">Hate Speech Detection</a></li>
+<li>Determines the <strong>logical relationship</strong> between two sentences (e.g., premise and hypothesis).</li>
+<li>Tasks include identifying <strong>entailment</strong>, <strong>contradiction</strong>, or <strong>neutrality</strong> between sentences.</li>
+<li>Useful for applications like question answering, summarization, and reasoning tasks.</li>
 </ul>
-<h3 id="technical-reference">Technical Reference</h3>
-<ul>
-<li><a href="reference/explainers/">Explainers</a></li>
-<li><a href="reference/metrics/">Metrics</a></li>
-<li><a href="reference/tasks_datasets/">Tasks and Datasets</a></li>
-<li><a href="reference/llm_explanations/">LLM Explanations</a></li>
-</ul>
+<h2 id="dataset-support">📚 Dataset Support</h2>
+<p>EvalxNLP includes a representative dataset for each of the supported tasks and allows users to extend the framework with additional classification datasets. All datasets are <strong>rationale-annotated</strong>, meaning they include human-annotated rationales that highlight the most important words or sentences for a given class label. These rationales enable the evaluation of alignment between model explanations and human understanding.</p>
+<h4 id="moviereviews">🎬 MovieReviews</h4>
+<p><em>Task:</em> Sentiment Analysis<br />
+<em>Description:</em> Contains 1,000 positive and 1,000 negative movie reviews. Each review includes <strong>phrase-level human-annotated rationales</strong> that justify the sentiment label.</p>
+<h4 id="hatexplain">📢 HateXplain</h4>
+<p><em>Task:</em> Hate Speech Detection<br />
+<em>Description:</em> Comprises 20,000 posts from Gab and Twitter, annotated with one of three labels: <strong>hate speech</strong>, <strong>offensive</strong>, or <strong>normal</strong>.</p>
+<h4 id="e-snli">📄 e-SNLI</h4>
+<p><em>Task:</em> Natural Language Inference<br />
+<em>Description:</em> Contains 549,367 examples split into training, validation, and test sets. Each example includes a <strong>premise</strong> and a <strong>hypothesis</strong>, annotated with one of three labels: <strong>entailment</strong>, <strong>contradiction</strong>, or <strong>neutral</strong>.</p>
 <hr /></div>
             </div>
         </div>
@@ -164,13 +154,13 @@
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
         <script>
-            var base_url = ".",
+            var base_url = "../..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js"></script>
-        <script src="search/main.js"></script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -235,8 +225,3 @@
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.6.1
-Build Date UTC : 2025-04-29 17:22:46.721622+00:00
--->
