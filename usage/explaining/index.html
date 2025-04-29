@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://dmah10.github.io/EvalxNLP_docs/usage/benchmarking/">
+        <link rel="canonical" href="https://dmah10.github.io/EvalxNLP_docs/usage/explaining/">
       
       
-        <link rel="prev" href="../explaining/">
+        <link rel="prev" href="../installation/">
       
       
-        <link rel="next" href="../llm_explanations/">
+        <link rel="next" href="../benchmarking/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Benchmarking - EvalxNLP</title>
+        <title>Explaining - EvalxNLP</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#evaluating-a-single-sentence" class="md-skip">
+        <a href="#explaining-single-sentence" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Benchmarking
+              Explaining
             
           </span>
         </div>
@@ -404,29 +404,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../explaining/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Explaining
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -442,7 +419,7 @@
   
   
   <span class="md-ellipsis">
-    Benchmarking
+    Explaining
     
   </span>
   
@@ -455,7 +432,7 @@
   
   
   <span class="md-ellipsis">
-    Benchmarking
+    Explaining
     
   </span>
   
@@ -476,37 +453,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#evaluating-a-single-sentence" class="md-nav__link">
+  <a href="#explaining-single-sentence" class="md-nav__link">
     <span class="md-ellipsis">
-      🧪 Evaluating a Single Sentence
+      🧠 Explaining Single Sentence
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🧪 Evaluating a Single Sentence">
+    <nav class="md-nav" aria-label="🧠 Explaining Single Sentence">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-evaluate-explanations" class="md-nav__link">
+  <a href="#step-1-initialize-the-model-and-tokenizer" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Evaluate Explanations
+      Step 1: Initialize the Model and Tokenizer
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#human-rationale" class="md-nav__link">
+  <a href="#step-2-initialize-the-xaiframework-class" class="md-nav__link">
     <span class="md-ellipsis">
-      Human Rationale
+      Step 2: Initialize the XAIFramework Class
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-view-results" class="md-nav__link">
+  <a href="#step-3-generate-explanations" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: View Results
+      Step 3: Generate Explanations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-visualize-explanations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Visualize Explanations
     </span>
   </a>
   
@@ -518,28 +504,70 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#evaluating-a-dataset" class="md-nav__link">
+  <a href="#explaining-datasets" class="md-nav__link">
     <span class="md-ellipsis">
-      🧪 Evaluating a Dataset
+      📂 Explaining Datasets
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🧪 Evaluating a Dataset">
+    <nav class="md-nav" aria-label="📂 Explaining Datasets">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-compute-evaluation-metrics" class="md-nav__link">
+  <a href="#step-1-define-dataset-loading-arguments" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Compute Evaluation Metrics
+      Step 1: Define Dataset Loading Arguments
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-visualize-results" class="md-nav__link">
+  <a href="#step-2-load-the-dataset" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: Visualize Results
+      Step 2: Load the Dataset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-ensure-correct-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Ensure Correct Format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Ensure Correct Format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-post-processing-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Post-processing Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-subset-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      (Optional) Subset Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-generate-explanations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Generate Explanations
     </span>
   </a>
   
@@ -554,6 +582,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benchmarking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Benchmarking
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -869,47 +920,145 @@
   
 
 
-  <h1>Benchmarking</h1>
+  <h1>Explaining</h1>
 
-<p>EvalxNLP allows users to <strong>evaluate the quality and reliability</strong> of generated explanations and compare multiple explainers across plausibility and faithfulness metrics.</p>
+<h2 id="explaining-single-sentence">🧠 Explaining Single Sentence</h2>
+<p>EvalxNLP integrates seamlessly with Hugging Face Transformer-based models. You can use any publicly available text classification model or a locally fine-tuned one. This guide walks you through the process of generating explanations for a single sentence.</p>
 <hr />
-<h3 id="evaluating-a-single-sentence">🧪 Evaluating a Single Sentence</h3>
-<h4 id="step-1-evaluate-explanations">Step 1: Evaluate Explanations</h4>
-<p>Use the <code>evaluate_single_sentence()</code> method from the <code>XAIFramework</code> class to evaluate explanations for a single sentence. You may also provide a <strong>human rationale</strong> to enable plausibility metric evaluation.</p>
-<h4 id="human-rationale">Human Rationale</h4>
-<ul>
-<li>Human rationales are <strong>binary lists</strong> indicating which tokens are important for the target label.</li>
-<li>A value of <code>1</code> marks a token as <strong>important</strong>, and <code>0</code> as <strong>not important</strong>.</li>
-<li>If no rationale is provided, plausibility metrics will be <strong>skipped</strong>.</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="n">example</span> <span class="o">=</span> <span class="s2">&quot;Worst experience I&#39;ve ever had!!&quot;</span>
-<span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;negative&quot;</span>
-<span class="n">human_rationale</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Binary rationale</span>
+<h3 id="step-1-initialize-the-model-and-tokenizer">Step 1: Initialize the Model and Tokenizer</h3>
+<p>Begin by loading your pre-trained model and tokenizer. You can choose any model from the <a href="https://huggingface.co/models">Hugging Face Model Hub</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoModelForSequenceClassification</span><span class="p">,</span> <span class="n">AutoTokenizer</span>
 
-<span class="n">metrics</span> <span class="o">=</span> <span class="n">xai_framework</span><span class="o">.</span><span class="n">evaluate_single_sentence</span><span class="p">(</span>
-    <span class="n">sentence</span><span class="o">=</span><span class="n">example</span><span class="p">,</span>
-    <span class="n">target_label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
-    <span class="n">human_rationale</span><span class="o">=</span><span class="n">human_rationale</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;cardiffnlp/twitter-xlm-roberta-base-sentiment&quot;</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="step-2-initialize-the-xaiframework-class">Step 2: Initialize the XAIFramework Class</h3>
+<p>Instantiate the framework with the desired explainers and evaluators. EvalxNLP supports multiple plug-and-play XAI modules.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">XAIbenchmark</span> <span class="kn">import</span> <span class="n">XAIFramework</span>
+<span class="kn">from</span> <span class="nn">explainers</span> <span class="kn">import</span> <span class="n">InputXGradientExplainer</span><span class="p">,</span> <span class="n">IntegratedGradientsExplainer</span>
+<span class="kn">from</span> <span class="nn">evaluators</span> <span class="kn">import</span> <span class="n">AUCTPEvaluator</span><span class="p">,</span> <span class="n">SoftComprehensivenessEvaluator</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
+
+<span class="c1"># Initialize explainers</span>
+<span class="n">ig</span> <span class="o">=</span> <span class="n">IntegratedGradientsExplainer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">)</span>
+<span class="n">ixg</span> <span class="o">=</span> <span class="n">InputXGradientExplainer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">multiply_by_inputs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Initialize evaluators</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">SoftComprehensivenessEvaluator</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">)</span>
+<span class="n">auctp</span> <span class="o">=</span> <span class="n">AUCTPEvaluator</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">)</span>
+
+<span class="c1"># Instantiate the framework</span>
+<span class="n">xai_framework</span> <span class="o">=</span> <span class="n">XAIFramework</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">tokenizer</span><span class="p">,</span>
+    <span class="n">explainers</span><span class="o">=</span><span class="p">[</span><span class="n">ig</span><span class="p">,</span> <span class="n">ixg</span><span class="p">],</span>
+    <span class="n">evaluators</span><span class="o">=</span><span class="p">[</span><span class="n">sc</span><span class="p">,</span> <span class="n">auctp</span><span class="p">],</span>
+    <span class="n">device</span><span class="o">=</span><span class="n">device</span>
 <span class="p">)</span>
 </code></pre></div>
-<h4 id="step-2-view-results">Step 2: View Results</h4>
-<p>Visualize the evaluation metrics in a tabular format using the <code>create_pivot_table()</code> function:</p>
-<div class="highlight"><pre><span></span><code><span class="n">xai_framework</span><span class="o">.</span><span class="n">create_pivot_table</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+<h3 id="step-3-generate-explanations">Step 3: Generate Explanations</h3>
+<p>Provide an input sentence and the corresponding target label to generate post-hoc explanations.</p>
+<div class="highlight"><pre><span></span><code><span class="n">example</span> <span class="o">=</span> <span class="s2">&quot;Worst experience I&#39;ve ever had!&quot;</span>
+<span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;negative&quot;</span>
+
+<span class="n">exps</span> <span class="o">=</span> <span class="n">xai_framework</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="n">input_data</span><span class="o">=</span><span class="n">example</span><span class="p">,</span> <span class="n">target_label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
 </code></pre></div>
+<h3 id="step-4-visualize-explanations">Step 4: Visualize Explanations</h3>
+<p>You can visualize the output explanations directly using the built-in visualization tool.</p>
+<div class="highlight"><pre><span></span><code><span class="n">xai_framework</span><span class="o">.</span><span class="n">visualize</span><span class="p">(</span><span class="n">exps</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="explaining-datasets">📂 Explaining Datasets</h2>
+<p>EvalxNLP allows users to explain and benchmark datasets from both the Hugging Face Hub and local files (e.g., CSV or Excel) using the <code>DatasetLoader</code> class. It supports text classification tasks such as <strong>Sentiment Analysis</strong>, <strong>Hate Speech Detection</strong>, and <strong>Natural Language Inference (NLI)</strong>.</p>
+<hr />
+<h3 id="step-1-define-dataset-loading-arguments">Step 1: Define Dataset Loading Arguments</h3>
+<p>To begin, define the dataset loading configuration using the <code>LoadDatasetArgs</code> data class. The following fields are required:</p>
 <ul>
-<li>Metrics are color-coded by property.</li>
-<li>Darker hues indicate stronger performance.</li>
-<li>The best-performing score for each metric is bolded for easier comparison.</li>
+<li><strong><code>dataset_name</code></strong>: Name of the dataset (e.g., Hugging Face dataset ID or <code>"csv"</code>/<code>"excel"</code> for local files).</li>
+<li><strong><code>text_field</code></strong>: Column name containing the input text.</li>
+<li><strong><code>label_field</code></strong>: Column name containing target labels.</li>
 </ul>
-<h3 id="evaluating-a-dataset">🧪 Evaluating a Dataset</h3>
-<h4 id="step-1-compute-evaluation-metrics">Step 1: Compute Evaluation Metrics</h4>
-<p>Use the <code>compute_evaluation_metrics()</code> method to calculate explanation quality across a dataset. It takes a list of explanation objects as input (e.g., from <code>get_feature_importance_for_dataset()</code>).</p>
-<div class="highlight"><pre><span></span><code><span class="n">metrics</span> <span class="o">=</span> <span class="n">xai_framework</span><span class="o">.</span><span class="n">compute_evaluation_metrics</span><span class="p">(</span><span class="n">exp_scores</span><span class="p">)</span>
+<p>Optional fields:
+- <strong><code>rationale_field</code></strong>: For plausibility-based evaluation using human rationales.
+- <strong><code>text_field_2</code></strong>: For NLI tasks, used to distinguish premise and hypothesis.</p>
+<hr />
+<h3 id="step-2-load-the-dataset">Step 2: Load the Dataset</h3>
+<p>Once configured, pass the arguments to <code>load_fields_from_dataset()</code> to retrieve the content:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataset_loaders.dataset_loader</span> <span class="kn">import</span> <span class="n">LoadDatasetArgs</span><span class="p">,</span> <span class="n">load_fields_from_dataset</span>
+
+<span class="n">dataset_args</span> <span class="o">=</span> <span class="n">LoadDatasetArgs</span><span class="p">(</span>
+    <span class="n">dataset_name</span><span class="o">=</span><span class="s2">&quot;Hate-speech-CNERG/hatexplain&quot;</span><span class="p">,</span>
+    <span class="n">text_field</span><span class="o">=</span><span class="s2">&quot;post_tokens&quot;</span><span class="p">,</span>
+    <span class="n">label_field</span><span class="o">=</span><span class="s2">&quot;annotators&quot;</span><span class="p">,</span>
+    <span class="n">rationale_field</span><span class="o">=</span><span class="s2">&quot;rationales&quot;</span><span class="p">,</span>
+    <span class="n">dataset_split</span><span class="o">=</span><span class="s2">&quot;test&quot;</span>
+<span class="p">)</span>
+
+<span class="n">input_texts</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">rationales</span> <span class="o">=</span> <span class="n">load_fields_from_dataset</span><span class="p">(</span><span class="n">dataset_args</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="step-2-visualize-results">Step 2: Visualize Results</h4>
-<p>Visualize the dataset-level evaluation using the same pivot table function:</p>
-<div class="highlight"><pre><span></span><code><span class="n">xai_framework</span><span class="o">.</span><span class="n">create_pivot_table</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+<p>This returns:</p>
+<ul>
+<li>
+<p>input_texts: List of input sentences.</p>
+</li>
+<li>
+<p>labels: List of class labels.</p>
+</li>
+<li>
+<p>rationales: (Optional) Token-level binary importance annotations.</p>
+</li>
+</ul>
+<h3 id="step-3-ensure-correct-format">Step 3: Ensure Correct Format</h3>
+<p>To use the data with EvalxNLP, ensure each field is in the expected format:</p>
+<p>Input Texts: List of strings.</p>
+<p>Labels: List of integers or strings.</p>
+<p>Rationales: List of binary lists (e.g., [0, 1, 0, 1, 0]).</p>
+<h4 id="data-post-processing-example">Data Post-processing Example</h4>
+<p>EvalxNLP provides helper classes to process specific datasets. Here's how to prepare data from the HateXplain dataset:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">dataset_loaders.hatexplain</span> <span class="kn">import</span> <span class="n">HateSpeechProcessor</span>
+
+<span class="k">class</span> <span class="nc">HateSpeechProcessor</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">process_input_texts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_texts</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">text_array</span><span class="p">)</span> <span class="k">for</span> <span class="n">text_array</span> <span class="ow">in</span> <span class="n">input_texts</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">process_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">label</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">argmax</span><span class="p">())</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">process_rationales</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rationales</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">rationales</span>
+
+    <span class="k">def</span> <span class="nf">process_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_texts</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">rationales</span><span class="p">):</span>
+        <span class="n">processed_input_texts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_input_texts</span><span class="p">(</span><span class="n">input_texts</span><span class="p">)</span>
+        <span class="n">processed_labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_labels</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+        <span class="n">processed_rationales</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_rationales</span><span class="p">(</span><span class="n">rationales</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">processed_input_texts</span><span class="p">,</span> <span class="n">processed_labels</span><span class="p">,</span> <span class="n">processed_rationales</span>
+
+<span class="c1"># Process the dataset</span>
+<span class="n">hs</span> <span class="o">=</span> <span class="n">HateSpeechProcessor</span><span class="p">()</span>
+<span class="n">processed_input_texts</span><span class="p">,</span> <span class="n">processed_labels</span><span class="p">,</span> <span class="n">processed_rationales</span> <span class="o">=</span> <span class="n">hs</span><span class="o">.</span><span class="n">process_dataset</span><span class="p">(</span><span class="n">input_texts</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">rationales</span><span class="p">)</span>
 </code></pre></div>
+<h3 id="optional-subset-selection">(Optional) Subset Selection</h3>
+<p>You can easily select a subset of samples to speed up evaluation:</p>
+<div class="highlight"><pre><span></span><code><span class="n">input_texts_sample</span> <span class="o">=</span> <span class="n">processed_input_texts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">labels_sample</span> <span class="o">=</span> <span class="n">processed_labels</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">rationale_sample</span> <span class="o">=</span> <span class="n">processed_rationales</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="step-4-generate-explanations">Step 4: Generate Explanations</h3>
+<p>Finally, pass the data into the get_feature_importance_for_dataset() function to generate and save explanations:</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">exp_scores</span> <span class="o">=</span> <span class="n">xai_framework</span><span class="o">.</span><span class="n">get_feature_importance_for_dataset</span><span class="p">(</span>
+    <span class="n">input_texts_sample</span><span class="p">,</span>
+    <span class="n">labels_sample</span><span class="p">,</span>
+    <span class="n">rationale_sample</span><span class="p">,</span>
+    <span class="n">output_file</span><span class="o">=</span><span class="s2">&quot;../results/scores/movie_xx.json&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+The results include explanation scores per token and can be stored for further analysis or visualization.</p>
 
 
 

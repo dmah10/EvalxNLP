@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://dmah10.github.io/EvalxNLP_docs/reference/tasks_datasets/">
+        <link rel="canonical" href="https://dmah10.github.io/EvalxNLP_docs/usage/advanced_usage/">
       
       
-        <link rel="prev" href="../metrics/">
+        <link rel="prev" href="../llm_explanations/">
       
       
-        <link rel="next" href="../llm_explanations/">
+        <link rel="next" href="../../tutorials/sentiment_analysis/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Tasks and Datasets - EvalxNLP</title>
+        <title>Advanced Features - EvalxNLP</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#supported-tasks" class="md-skip">
+        <a href="#gpu-usage" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tasks and Datasets
+              Advanced Features
             
           </span>
         </div>
@@ -202,11 +202,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../usage/installation/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../installation/" class="md-tabs__link">
           
   
   
@@ -242,13 +244,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../explainers/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../reference/explainers/" class="md-tabs__link">
           
   
   
@@ -333,26 +333,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -365,7 +370,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Usage
@@ -379,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/installation/" class="md-nav__link">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -402,7 +407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/explaining/" class="md-nav__link">
+      <a href="../explaining/" class="md-nav__link">
         
   
   
@@ -425,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/benchmarking/" class="md-nav__link">
+      <a href="../benchmarking/" class="md-nav__link">
         
   
   
@@ -448,7 +453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/llm_explanations/" class="md-nav__link">
+      <a href="../llm_explanations/" class="md-nav__link">
         
   
   
@@ -468,10 +473,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../usage/advanced_usage/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Advanced Features
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -482,6 +507,66 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚡ GPU Usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-custom-objects-to-the-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Add Custom Objects to the API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧩 Add Custom Objects to the API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-custom-explainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a Custom Explainer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-custom-evaluation-metric" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a Custom Evaluation Metric
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -594,31 +679,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -631,7 +711,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Technical Reference
@@ -645,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explainers/" class="md-nav__link">
+      <a href="../../reference/explainers/" class="md-nav__link">
         
   
   
@@ -668,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../metrics/" class="md-nav__link">
+      <a href="../../reference/metrics/" class="md-nav__link">
         
   
   
@@ -688,30 +768,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Tasks and Datasets
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../reference/tasks_datasets/" class="md-nav__link">
         
   
   
@@ -722,108 +782,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#supported-tasks" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧠 Supported Tasks
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🧠 Supported Tasks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sentiment-analysis" class="md-nav__link">
-    <span class="md-ellipsis">
-      💬 Sentiment Analysis
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hate-speech-detection" class="md-nav__link">
-    <span class="md-ellipsis">
-      🚫 Hate Speech Detection
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#natural-language-inference-nli" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔗 Natural Language Inference (NLI)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dataset-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      📚 Dataset Support
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📚 Dataset Support">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#moviereviews" class="md-nav__link">
-    <span class="md-ellipsis">
-      🎬 MovieReviews
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hatexplain" class="md-nav__link">
-    <span class="md-ellipsis">
-      📢 HateXplain
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#e-snli" class="md-nav__link">
-    <span class="md-ellipsis">
-      📄 e-SNLI
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -836,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../llm_explanations/" class="md-nav__link">
+      <a href="../../reference/llm_explanations/" class="md-nav__link">
         
   
   
@@ -878,38 +836,89 @@
   
 
 
-  <h1>Tasks and Datasets</h1>
+  <h1>Advanced Features</h1>
 
-<p>The framework currently supports the following text classification tasks:</p>
-<h2 id="supported-tasks">🧠 Supported Tasks</h2>
-<h4 id="sentiment-analysis">💬 Sentiment Analysis</h4>
-<ul>
-<li>Determines the sentiment expressed in a text, such as <strong>positive</strong>, <strong>negative</strong>, or <strong>neutral</strong>.</li>
-<li>Commonly used in applications like product reviews, social media analysis, and customer feedback.</li>
-</ul>
-<h4 id="hate-speech-detection">🚫 Hate Speech Detection</h4>
-<ul>
-<li>Identifies and classifies text containing <strong>hate speech</strong>, <strong>offensive language</strong>, or <strong>harmful content</strong>.</li>
-<li>Essential for moderating online platforms and ensuring safe digital environments.</li>
-</ul>
-<h4 id="natural-language-inference-nli">🔗 Natural Language Inference (NLI)</h4>
-<ul>
-<li>Determines the <strong>logical relationship</strong> between two sentences (e.g., premise and hypothesis).</li>
-<li>Tasks include identifying <strong>entailment</strong>, <strong>contradiction</strong>, or <strong>neutrality</strong> between sentences.</li>
-<li>Useful for applications like question answering, summarization, and reasoning tasks.</li>
-</ul>
-<h2 id="dataset-support">📚 Dataset Support</h2>
-<p>EvalxNLP includes a representative dataset for each of the supported tasks and allows users to extend the framework with additional classification datasets. All datasets are <strong>rationale-annotated</strong>, meaning they include human-annotated rationales that highlight the most important words or sentences for a given class label. These rationales enable the evaluation of alignment between model explanations and human understanding.</p>
-<h4 id="moviereviews">🎬 MovieReviews</h4>
-<p><em>Task:</em> Sentiment Analysis<br />
-<em>Description:</em> Contains 1,000 positive and 1,000 negative movie reviews. Each review includes <strong>phrase-level human-annotated rationales</strong> that justify the sentiment label.</p>
-<h4 id="hatexplain">📢 HateXplain</h4>
-<p><em>Task:</em> Hate Speech Detection<br />
-<em>Description:</em> Comprises 20,000 posts from Gab and Twitter, annotated with one of three labels: <strong>hate speech</strong>, <strong>offensive</strong>, or <strong>normal</strong>.</p>
-<h4 id="e-snli">📄 e-SNLI</h4>
-<p><em>Task:</em> Natural Language Inference<br />
-<em>Description:</em> Contains 549,367 examples split into training, validation, and test sets. Each example includes a <strong>premise</strong> and a <strong>hypothesis</strong>, annotated with one of three labels: <strong>entailment</strong>, <strong>contradiction</strong>, or <strong>neutral</strong>.</p>
-<hr />
+<h2 id="gpu-usage">⚡ GPU Usage</h2>
+<p>To enable GPU acceleration for explanation generation and metric computation, ensure that your model and all framework components are properly initialized on the target device (e.g., GPU or CPU). Below is an example demonstrating how to configure and initialize the framework for GPU usage:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoModelForSequenceClassification</span><span class="p">,</span> <span class="n">AutoTokenizer</span>
+<span class="kn">from</span> <span class="nn">explainers</span> <span class="kn">import</span> <span class="n">IntegratedGradientsExplainer</span>
+<span class="kn">from</span> <span class="nn">evaluators</span> <span class="kn">import</span> <span class="n">SoftComprehensivenessEvaluator</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="c1"># Set device</span>
+<span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
+
+<span class="c1"># Load model and tokenizer</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;cardiffnlp/twitter-xlm-roberta-base-sentiment&quot;</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># Initialize explainer and evaluator with device</span>
+<span class="n">ig</span> <span class="o">=</span> <span class="n">IntegratedGradientsExplainer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">SoftComprehensivenessEvaluator</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># Initialize framework</span>
+<span class="n">xai_framework</span> <span class="o">=</span> <span class="n">XAIFramework</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">tokenizer</span><span class="p">,</span>
+    <span class="n">explainers</span><span class="o">=</span><span class="p">[</span><span class="n">ig</span><span class="p">],</span>
+    <span class="n">evaluators</span><span class="o">=</span><span class="p">[</span><span class="n">sc</span><span class="p">],</span>
+    <span class="n">device</span><span class="o">=</span><span class="n">device</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>This setup ensures that all components run efficiently on the GPU when available, significantly accelerating explanation generation and evaluation.</p>
+<h2 id="add-custom-objects-to-the-api">🧩 Add Custom Objects to the API</h2>
+<p>The <code>EvalxNLP</code> framework is fully extensible. You can create and register your own explanation methods and evaluation metrics.</p>
+<h3 id="add-a-custom-explainer">Add a Custom Explainer</h3>
+<p>To implement a new explanation method, extend the <code>BaseExplainer</code> abstract class. You must implement the following:</p>
+<ol>
+<li><strong><code>NAME</code></strong> (class property): A unique string identifier for your explainer.</li>
+<li><strong><code>compute_feature_importance()</code></strong>: The core method responsible for computing token-level importance scores.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyCustomExplainer</span><span class="p">(</span><span class="n">BaseExplainer</span><span class="p">):</span>
+    <span class="n">NAME</span> <span class="o">=</span> <span class="s2">&quot;my_explainer&quot;</span>  <span class="c1"># Unique identifier</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># Add custom initialization parameters if needed</span>
+
+    <span class="k">def</span> <span class="nf">compute_feature_importance</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+        <span class="n">target_token</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Explanation</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Core method implementing the explanation logic&quot;&quot;&quot;</span>
+        <span class="c1"># [Implementation details here]</span>
+        <span class="k">return</span> <span class="n">Explanation</span><span class="p">(</span>
+            <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span>
+            <span class="n">tokens</span><span class="o">=</span><span class="n">tokens</span><span class="p">,</span>
+            <span class="n">scores</span><span class="o">=</span><span class="n">scores</span><span class="p">,</span>
+            <span class="n">explainer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">NAME</span><span class="p">,</span>
+            <span class="c1"># Additional metadata if required</span>
+        <span class="p">)</span>
+</code></pre></div>
+<h3 id="add-a-custom-evaluation-metric">Add a Custom Evaluation Metric</h3>
+<p>To add a custom evaluation metric, extend the <code>BaseEvaluator</code> abstract class. You must implement:</p>
+<ol>
+<li><strong><code>NAME</code></strong> (class property): A unique string identifier for your metric.</li>
+<li><strong><code>compute()</code></strong>: A method that takes a list of Explanation objects and returns the computed score.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyCustomEvaluator</span><span class="p">(</span><span class="n">BaseEvaluator</span><span class="p">):</span>
+    <span class="n">NAME</span> <span class="o">=</span> <span class="s2">&quot;my_metric&quot;</span>  <span class="c1"># Unique identifier</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># Add custom initialization parameters if needed</span>
+
+    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">explanations</span>
+    <span class="p">):</span>
+        <span class="c1">#Add custom implementation here</span>
+        <span class="k">return</span> <span class="n">value</span>
+</code></pre></div>
 
 
 

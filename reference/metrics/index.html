@@ -1,128 +1,928 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>📊 Evaluation Metrics - My Docs</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">My Docs</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://dmah10.github.io/EvalxNLP_docs/reference/metrics/">
+      
+      
+        <link rel="prev" href="../explainers/">
+      
+      
+        <link rel="next" href="../tasks_datasets/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Metrics - EvalxNLP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      
+      
 
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Welcome to EvalxNLP documentation!</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../explainers/" class="dropdown-item">🧠 Explainers</a>
-</li>
-                                    
-<li>
-    <a href="../llm_explanations/" class="dropdown-item">Llm explanations</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">📊 Evaluation Metrics</a>
-</li>
-                                    
-<li>
-    <a href="../tasks_datasets/" class="dropdown-item">Tasks datasets</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Usage</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../usage/benchmarking/" class="dropdown-item">Benchmarking</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../llm_explanations/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../tasks_datasets/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#evaluation-metrics" class="nav-link">📊 Evaluation Metrics</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#faithfulness" class="nav-link">✅ Faithfulness</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#plausibility" class="nav-link">💡 Plausibility</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#complexity" class="nav-link">🔀 Complexity</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#evaluation-metrics" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="EvalxNLP" class="md-header__button md-logo" aria-label="EvalxNLP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EvalxNLP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Metrics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmah10/EvalxNLP" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../usage/installation/" class="md-tabs__link">
+          
+  
+  
+  Usage
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tutorials/sentiment_analysis/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../explainers/" class="md-tabs__link">
+          
+  
+  
+  Technical Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="EvalxNLP" class="md-nav__button md-logo" aria-label="EvalxNLP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    EvalxNLP
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmah10/EvalxNLP" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/explaining/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Explaining
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/benchmarking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Benchmarking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/llm_explanations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generating LLM Explanations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/advanced_usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/sentiment_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sentiment Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/hate_speech/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hate Speech Detection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Technical Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Technical Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explainers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Explainers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Metrics
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metrics
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#faithfulness" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Faithfulness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Faithfulness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soft-sufficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Soft Sufficiency ↓
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soft-comprehensiveness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Soft Comprehensiveness ↑
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fad-curve-n-auc" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAD curve N-AUC ↓
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      AUTPC ↓
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plausibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Plausibility
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Plausibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iou-f1-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      IOU-F1 Score ↑
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-level-f1-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token-level F1 Score ↑
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auprc" class="md-nav__link">
+    <span class="md-ellipsis">
+      AUPRC ↑
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔀 Complexity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔀 Complexity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complexity_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexity ↓
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sparseness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sparseness ↑
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tasks_datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tasks and Datasets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llm_explanations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM Explanations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
 
 <h1 id="evaluation-metrics">📊 Evaluation Metrics</h1>
 <p>EvalxNLP incorporates a diverse and well-recognized set of properties and metrics from prior research to evaluate post-hoc explanation methods. These metrics are designed to assess explanation quality across three major properties:</p>
@@ -143,66 +943,66 @@
 <h3 id="soft-sufficiency">Soft Sufficiency ↓</h3>
 <p>Measures how well the most important tokens (based on their importance scores) can retain the model's prediction when other tokens are softly perturbed. It assumes that retaining more elements of important tokens should preserve the model's output, while dropping less important tokens should have minimal impact.</p>
 <p>A <strong>Bernoulli mask</strong> is generated, where each token is dropped with a probability proportional to its normalized importance score:</p>
-<p>$$
-\mathrm{mask} \sim \mathrm{Bernoulli}\left(\mathrm{normalized_importance_scores}\right)
-$$</p>
+<div class="arithmatex">\[
+\mathrm{mask} \sim \mathrm{Bernoulli}\left(\mathrm{normalized\_importance\_scores}\right)
+\]</div>
 <p>The <strong>Suff score</strong> is calculated as:</p>
-<p>$$
+<div class="arithmatex">\[
 \mathrm{Suff} = 1 - \max\left(0, P_{\mathrm{full}}(y) - P_{\mathrm{reduced}}(y)\right)
-$$</p>
+\]</div>
 <p>Where:</p>
 <ul>
-<li>$P_{\mathrm{full}}(y)$ is the model's predicted probability for the original input</li>
-<li>$P_{\mathrm{reduced}}(y)$ is the model's predicted probability for the perturbed input</li>
+<li><span class="arithmatex">\(P_{\mathrm{full}}(y)\)</span> is the model's predicted probability for the original input</li>
+<li><span class="arithmatex">\(P_{\mathrm{reduced}}(y)\)</span> is the model's predicted probability for the perturbed input</li>
 </ul>
-<p>The Suff score is normalized to the range $[0, 1]$ using a baseline Suff score (computed by masking all tokens):</p>
-<p>$$
-\mathrm{normalized_Suff} = \frac{\max\left(0, \mathrm{Suff} - \mathrm{baseline_Suff}\right)}{1 - \mathrm{baseline_Suff}}
-$$</p>
+<p>The Suff score is normalized to the range <span class="arithmatex">\([0, 1]\)</span> using a baseline Suff score (computed by masking all tokens):</p>
+<div class="arithmatex">\[
+\mathrm{normalized\_Suff} = \frac{\max\left(0, \mathrm{Suff} - \mathrm{baseline\_Suff}\right)}{1 - \mathrm{baseline\_Suff}}
+\]</div>
 <p>The final score is the average across all instances, with higher values indicating that the model's predictions are less affected by the perturbation of important tokens.</p>
 <hr />
 <h3 id="soft-comprehensiveness">Soft Comprehensiveness ↑</h3>
 <p>It evaluates how much the model's prediction changes when important tokens are softly perturbed using Bernoulli mask. It assumes that heavily perturbing important tokens should significantly affect the model's output, indicating their importance to the prediction.</p>
-<p>For each instance, the importance scores of tokens are normalized to the range $[0, 1]$:</p>
-<p>$$
-\mathrm{normalized_importance_scores} = \frac{\mathrm{importance_scores} - \min(\mathrm{importance_scores})}{\max(\mathrm{importance_scores}) - \min(\mathrm{importance_scores})}
-$$</p>
-<p>A Bernoulli mask is then generated, where each token is dropped with a probability proportional to $1 - \mathrm{normalized_importance_scores}$:</p>
-<p>$$
-\mathrm{mask} \sim \mathrm{Bernoulli}\left(1 - \mathrm{normalized_importance_scores}\right)
-$$</p>
-<p>This mask is applied to the token embeddings, creating a perturbed input. The $\mathrm{Comp}$ score is calculated as the difference between the model's confidence in the original prediction and its confidence after perturbation:</p>
-<p>$$
+<p>For each instance, the importance scores of tokens are normalized to the range <span class="arithmatex">\([0, 1]\)</span>:</p>
+<div class="arithmatex">\[
+\mathrm{normalized\_importance\_scores} = \frac{\mathrm{importance\_scores} - \min(\mathrm{importance\_scores})}{\max(\mathrm{importance\_scores}) - \min(\mathrm{importance\_scores})}
+\]</div>
+<p>A Bernoulli mask is then generated, where each token is dropped with a probability proportional to <span class="arithmatex">\(1 - \mathrm{normalized\_importance\_scores}\)</span>:</p>
+<div class="arithmatex">\[
+\mathrm{mask} \sim \mathrm{Bernoulli}\left(1 - \mathrm{normalized\_importance\_scores}\right)
+\]</div>
+<p>This mask is applied to the token embeddings, creating a perturbed input. The <span class="arithmatex">\(\mathrm{Comp}\)</span> score is calculated as the difference between the model's confidence in the original prediction and its confidence after perturbation:</p>
+<div class="arithmatex">\[
 \mathrm{Comp} = \max\left(0, P_{\mathrm{original}}(y) - P_{\mathrm{perturbed}}(y)\right)
-$$</p>
+\]</div>
 <p>where:</p>
 <ul>
-<li>$P_{\mathrm{original}}(y)$ is the model's predicted probability for the original input</li>
-<li>$P_{\mathrm{perturbed}}(y)$ is the model's predicted probability for the perturbed input</li>
+<li><span class="arithmatex">\(P_{\mathrm{original}}(y)\)</span> is the model's predicted probability for the original input</li>
+<li><span class="arithmatex">\(P_{\mathrm{perturbed}}(y)\)</span> is the model's predicted probability for the perturbed input</li>
 </ul>
-<p>The final $\mathrm{Comp}$ score is the average across all instances, with higher values indicating that the model relies more heavily on the important tokens.</p>
+<p>The final <span class="arithmatex">\(\mathrm{Comp}\)</span> score is the average across all instances, with higher values indicating that the model relies more heavily on the important tokens.</p>
 <hr />
 <h3 id="fad-curve-n-auc">FAD curve N-AUC ↓</h3>
 <p>Measures the impact of dropping the most salient tokens on model performance, with the steepness of the curve indicating the method's faithfulness. The N-AUC quantifies this steepness, where a higher score reflects better alignment of the attribution method with the model's true feature importance.</p>
 <p>For each instance, tokens are progressively dropped based on their saliency scores and the model's accuracy is evaluated at different drop percentages (e.g., 0%, 10%, ..., 40%). The saliency scores determine which tokens to replace with a baseline token (<code>[MASK]</code>). The N-AUC is computed over a specified percentage range (0% to 20%) using the trapezoidal rule:</p>
-<p>$$
-\mathrm{N\text{-}AUC} = \frac{\mathrm{AUC}}{\mathrm{max_AUC}}
-$$</p>
+<div class="arithmatex">\[
+\mathrm{N\text{-}AUC} = \frac{\mathrm{AUC}}{\mathrm{max\_AUC}}
+\]</div>
 <p>where:</p>
 <ul>
-<li>$\mathrm{AUC}$ is the area under the accuracy curve, computed as:</li>
+<li><span class="arithmatex">\(\mathrm{AUC}\)</span> is the area under the accuracy curve, computed as:</li>
 </ul>
 <p>$$
   \mathrm{AUC} = \int_{x_{\min}}^{x_{\max}} y(x) \, dx
   $$</p>
-<p>where $x$ represents the percentage of tokens dropped, and $y(x)$ represents the model's accuracy at that percentage.</p>
+<p>where <span class="arithmatex">\(x\)</span> represents the percentage of tokens dropped, and <span class="arithmatex">\(y(x)\)</span> represents the model's accuracy at that percentage.</p>
 <ul>
-<li>$\mathrm{max_AUC}$ is the maximum possible area, calculated as:</li>
+<li><span class="arithmatex">\(\mathrm{max\_AUC}\)</span> is the maximum possible area, calculated as:</li>
 </ul>
 <p>$$
   \mathrm{max_AUC} = (x_{\max} - x_{\min}) \times \max(y)
   $$</p>
-<p>where $x_{\min}$ and $x_{\max}$ are the lower and upper bounds of the percentage range, and $\max(y)$ is the highest accuracy value in the range.</p>
+<p>where <span class="arithmatex">\(x_{\min}\)</span> and <span class="arithmatex">\(x_{\max}\)</span> are the lower and upper bounds of the percentage range, and <span class="arithmatex">\(\max(y)\)</span> is the highest accuracy value in the range.</p>
 <p>This metric quantifies how much model performance degrades when salient tokens are removed, with lower N-AUC indicating greater reliance on the dropped tokens.</p>
 <hr />
 <h3 id="autpc">AUTPC ↓</h3>
@@ -222,15 +1022,15 @@ Results are standardized by the number of features for comparability.</p>
 <p>Measures how well explanations align with human-annotated rationales.</p>
 </blockquote>
 <h3 id="iou-f1-score">IOU-F1 Score ↑</h3>
-<p>It evaluates the alignment between predicted rationales and ground truth rationales at the span level using the Intersection over Union (IOU) metric. For the i-th instance with predicted rationale $S_i^p$ and ground truth rationale $S_i^g$, the IOU is calculated as:</p>
-<p>$$
+<p>It evaluates the alignment between predicted rationales and ground truth rationales at the span level using the Intersection over Union (IOU) metric. For the i-th instance with predicted rationale <span class="arithmatex">\(S_i^p\)</span> and ground truth rationale <span class="arithmatex">\(S_i^g\)</span>, the IOU is calculated as:</p>
+<div class="arithmatex">\[
 S_i = \frac{|S_i^p \cap S_i^g|}{|S_i^p \cup S_i^g|}
-$$</p>
-<p>A rationale is considered a match when $S_i \geq 0.5$. The IOU-F1 score aggregates these matches across all $N$ instances:</p>
-<p>$$
+\]</div>
+<p>A rationale is considered a match when <span class="arithmatex">\(S_i \geq 0.5\)</span>. The IOU-F1 score aggregates these matches across all <span class="arithmatex">\(N\)</span> instances:</p>
+<div class="arithmatex">\[
 \mathrm{IOU\text{-}F1} = \frac{1}{N} \sum_{i=1}^N \mathbb{I}(S_i \geq 0.5)
-$$</p>
-<p>where $\mathbb{I}$ is the indicator function:
+\]</div>
+<p>where <span class="arithmatex">\(\mathbb{I}\)</span> is the indicator function:
 $$
 \mathbb{I}(S_i \geq 0.5) = 
 \begin{cases} 
@@ -241,25 +1041,25 @@ $$</p>
 <p>This metric ranges from 0 to 1, with higher values indicating better alignment between predicted and ground truth rationales. The 0.5 threshold ensures that only substantially overlapping spans are counted as matches.</p>
 <hr />
 <h3 id="token-level-f1-score">Token-level F1 Score ↑</h3>
-<p>The Token F1-score measures the alignment between predicted rationales and ground truth rationales by computing the F1-score, which balances precision and recall. For each instance, the predicted rationale $S_i^p$ is compared to the ground truth rationale $S_i^g$, and the F1-score is calculated based on the overlap of tokens.</p>
+<p>The Token F1-score measures the alignment between predicted rationales and ground truth rationales by computing the F1-score, which balances precision and recall. For each instance, the predicted rationale <span class="arithmatex">\(S_i^p\)</span> is compared to the ground truth rationale <span class="arithmatex">\(S_i^g\)</span>, and the F1-score is calculated based on the overlap of tokens.</p>
 <p>The F1-score for the i-th instance is defined as:</p>
-<p>$$
+<div class="arithmatex">\[
 F1_i = \frac{2 \times P_i \times R_i}{P_i + R_i}
-$$</p>
+\]</div>
 <p>where:
-- <strong>Precision</strong> $P_i$:
+- <strong>Precision</strong> <span class="arithmatex">\(P_i\)</span>:
   $$
   P_i = \frac{|S_i^p \cap S_i^g|}{|S_i^p|}
   $$
-- <strong>Recall</strong> $R_i$:
+- <strong>Recall</strong> <span class="arithmatex">\(R_i\)</span>:
   $$
   R_i = \frac{|S_i^p \cap S_i^g|}{|S_i^g|}
   $$</p>
-<p>The final Token F1-score is the average F1-score across all $N$ instances:</p>
-<p>$$
+<p>The final Token F1-score is the average F1-score across all <span class="arithmatex">\(N\)</span> instances:</p>
+<div class="arithmatex">\[
 \mathrm{Token\text{-}F1} = \frac{1}{N} \sum_{i=1}^N F1_i
-$$</p>
-<p>For both the Token-F1 score and IOU-F1 score, the top $K$ tokens with positive influence are selected, where $K$ is the average length of the human rationale for the dataset.</p>
+\]</div>
+<p>For both the Token-F1 score and IOU-F1 score, the top <span class="arithmatex">\(K\)</span> tokens with positive influence are selected, where <span class="arithmatex">\(K\)</span> is the average length of the human rationale for the dataset.</p>
 <hr />
 <h3 id="auprc">AUPRC ↑</h3>
 <p>For each instance, the saliency scores are compared to the ground truth rationale
@@ -274,107 +1074,95 @@ human-annotated rationales, with higher scores indicating better performance.</p
 </blockquote>
 <h3 id="complexity_1">Complexity ↓</h3>
 <p>It measures the complexity of token-level attributions using Shannon entropy, which quantifies how evenly the importance scores are distributed across tokens. For each instance, the fractional contribution of each token is computed as:</p>
-<p>$$
+<div class="arithmatex">\[
 f_j = \frac{|a_j|}{\sum_{k=1}^n |a_k|}
-$$</p>
+\]</div>
 <p>where:
-- $a_j$ is the saliency score of the $j$-th token
-- $n$ is the total number of tokens</p>
+- <span class="arithmatex">\(a_j\)</span> is the saliency score of the <span class="arithmatex">\(j\)</span>-th token
+- <span class="arithmatex">\(n\)</span> is the total number of tokens</p>
 <p>The complexity score for the instance is then calculated as the entropy of the fractional contributions:</p>
-<p>$$
+<div class="arithmatex">\[
 \mathrm{Complexity} = -\frac{1}{n}\sum_{j=1}^n f_j \cdot \log(f_j + \epsilon)
-$$</p>
-<p>where $\epsilon$ is a small constant (e.g., $10^{-8}$) to avoid numerical instability. The final complexity score is the average across all instances, with higher values indicating more evenly distributed attributions (higher complexity) and lower values indicating more concentrated attributions (lower complexity).</p>
+\]</div>
+<p>where <span class="arithmatex">\(\epsilon\)</span> is a small constant (e.g., <span class="arithmatex">\(10^{-8}\)</span>) to avoid numerical instability. The final complexity score is the average across all instances, with higher values indicating more evenly distributed attributions (higher complexity) and lower values indicating more concentrated attributions (lower complexity).</p>
 <hr />
 <h3 id="sparseness">Sparseness ↑</h3>
 <p>It measures the sparsity of model attributions using the Gini index, which quantifies how concentrated the importance scores are across features. For each instance, the absolute values of the attributions are sorted in ascending order, and the Gini index is computed as:</p>
-<p>$$
+<div class="arithmatex">\[
 \mathrm{Sparseness} = 1 - 2 \cdot \frac{\sum_{j=1}^n (n - j + 0.5) \cdot |a_j|}{\left(\sum_{j=1}^n |a_j|\right) \cdot n}
-$$</p>
+\]</div>
 <p>where:
-- $a_j$ is the $j$-th sorted attribution value
-- $n$ is the total number of features (tokens)
-- $|a_j|$ is the absolute value of the $j$-th attribution</p>
+- <span class="arithmatex">\(a_j\)</span> is the <span class="arithmatex">\(j\)</span>-th sorted attribution value
+- <span class="arithmatex">\(n\)</span> is the total number of features (tokens)
+- <span class="arithmatex">\(|a_j|\)</span> is the absolute value of the <span class="arithmatex">\(j\)</span>-th attribution</p>
 <p>The sparseness score ranges from 0 to 1, where:
 - <strong>0</strong> indicates dense attributions (importance is evenly distributed across features)
 - <strong>1</strong> indicates sparse attributions (importance is concentrated on a few features)</p>
 <p>The final sparseness score is the average across all instances, providing a single metric to evaluate how focused the model is on specific features.</p>
-<hr /></div>
-            </div>
-        </div>
+<hr />
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../search/main.js"></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-
-    </body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight", "content.tabs", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>
