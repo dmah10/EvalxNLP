@@ -17,7 +17,7 @@ This is the repository for the paper: "EvalxNLP: A Framework for Benchmarking Po
 Explainability Methods on NLP Models". 
 
 - Paper: TBA
-- Documentation: TBA
+- Documentation: (https://dmah10.github.io/EvalxNLP/)
 
 A comprehensive toolbox for benchmarking explainability techniques on NLP classification models, featuring:
 - Multiple explanation methods
