@@ -1,0 +1,46 @@
+site_name: EvalxNLP
+site_url: https://dmah10.github.io/EvalxNLP_docs/
+repo_url: https://github.com/dmah10/EvalxNLP 
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.tabs
+    - content.code.annotate
+
+markdown_extensions:
+    - admonition
+    - pymdownx.highlight
+    - pymdownx.superfences
+    - pymdownx.tabbed
+    - pymdownx.tasklist
+    - pymdownx.arithmatex:
+        generic: true
+        block_tag: 'div'
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Usage:
+    - Installation: usage/installation.md
+    - Explaining: usage/explaining.md
+    - Benchmarking: usage/benchmarking.md
+    - Generating LLM Explanations: usage/llm_explanations.md
+    - Advanced Features: usage/advanced_usage.md
+  - Tutorials:
+    - Sentiment Analysis: tutorials/sentiment_analysis.md
+    - Hate Speech Detection: tutorials/hate_speech.md
+  - Technical Reference:
+    - Explainers: reference/explainers.md
+    - Metrics: reference/metrics.md
+    - Tasks and Datasets: reference/tasks_datasets.md
+    - LLM Explanations: reference/llm_explanations.md

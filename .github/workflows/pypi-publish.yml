@@ -1,0 +1,41 @@
+name: Upload Python Package to PyPI
+
+on:
+  release:
+    types: [created]  # Runs when a new GitHub Release is created
+  workflow_dispatch:  # Allows manual triggering
+# on:
+#   push:
+#     branches:
+#       - main
+      
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: List files in the directory
+        run: ls -la
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install build tools
+        run: pip install build twine
+
+      - name: Build the package
+        run: python -m build
+
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: "__token__"
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: twine upload dist/*
