@@ -257,7 +257,7 @@ json_path, html_path = explainer.save_results(results)
 explainer.display_results(results)
 ```
 
-## Advanced Usage
+## GPU Usage
 
 ### GPU
 
